@@ -1,15 +1,26 @@
-import config from 'config';
-import express from 'express';
-
-const debug = require('debug')('server:debug');
+const express = require("express");
 const app = express();
-const port = config.get('port');
-const name = config.get('name');
 
-const listen = app.listen(port, () => {
-    debug(`server is running on port ${port} and in ${name} mode`);
-    console.log(`server is running on port ${port} and in ${name} mode`);
-})
+app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.json({ status: "success", message: "Welcome To Testing API" });
+});
+
+app.post("/add", (req, res) => {
+  const { num1, num2 } = req.body;
+  const add = (num1, num2) => {
+    return num1 + num2;
+  };
+  res.json({
+    status: "success",
+    message: "Welcome To Testing API",
+    result: add(num1, num2)
+  });
+});
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
 
 module.exports = app;
-// module.exports.port = listen.address().port;
