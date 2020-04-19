@@ -1,4 +1,4 @@
-function infoOf(file) {
+export function infoOf(file) {
     if (!file) {
         return {}
     }
@@ -10,5 +10,3 @@ function infoOf(file) {
         checksum: file.md5
     }
 }
-
-export { infoOf }

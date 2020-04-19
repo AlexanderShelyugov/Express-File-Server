@@ -1,11 +1,10 @@
 import express from 'express'
 import _ from 'lodash'
 
-import FileService from '../service/file.service'
-import { infoOf } from '../service/file.info'
+import { FileService as Service, infoOf } from '../service'
 
 const filesController = express.Router()
-const fileService = new FileService()
+const fileService = new Service()
 
 filesController.get('/file/:id', async (req, res) => {
     let file = fileService.getFile(req.params.id)

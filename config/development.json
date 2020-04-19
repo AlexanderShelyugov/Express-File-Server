@@ -1,6 +1,5 @@
 {
     "name": "Server Developement",
     "database": "mysql://localhost:27017/development",
-    "port": 3000,
-    "myprivatekey": "MIICXAIBAAKBgQC45SMOKXcn+Fo3G5ZdwtODqWIYHwPX8B"
+    "port": 3000
 }
